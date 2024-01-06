@@ -1,0 +1,48 @@
+body {
+    font-family: 'Prompt', sans-serif;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+  }
+
+
+.card {
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    width: 300px;
+
+    
+}
+
+.card-header {
+    background-color: #f0f0f0;
+    padding: 1px;
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 10px;
+}
+
+.center {
+    text-align: center;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 350px);
+    gap: 10px;
+    /* margin: 20px; */
+
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+    justify-content: center;
+}
