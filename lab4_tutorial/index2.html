@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">
+        <p id="p1">JavaScript</p> 
+        <p id="p2">Python</p>
+        <p id="p3">TypeScript</p>
+        <!-- add a new element here --> 
+    </div>
+    <hr>
+    <div id="div2">
+        <p>My favourite fruit.</p>
+        <!-- add img here -->
+    </div>
+    
+
+    <button type="button" onclick="addNode()">Add Node</button>
+    <button type="button" onclick="deleteNode()">Delete Node</button>
+    <button type="button" onclick="addNewImage()">Add Image</button>
+
+    <script>
+
+        function addNode() {
+            // <p>a new paragraph</p>
+            let ptag = document.createElement("p");
+            // create text node 
+            let txt = document.createTextNode("a new paragraph");
+            ptag.appendChild(txt);
+            // append text node to a parent node
+            // select a parent node            
+            let parent1 = document.getElementById("div1");
+            // append element node to a parent node
+            
+            /*  uncomment in step 2 **/
+            let childP1 = document.getElementById("p3");
+            parent1.appendChild(ptag, childP1);
+                       
+        }
+        function addNewImage() {
+            // <img src="apples.jpg">
+            let imgtag = document.createElement("img");
+
+            let srcAttr = document.createAttribute("src");
+            srcAttr.value ="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg";           
+            imgtag.setAttributeNode(srcAttr);
+            // method 2
+            //imgtag.setAttribute('src', 'apples.jpg');
+
+            // add to <body>
+            let main = document.getElementById("div2");
+            div2.appendChild(imgtag);                                   
+        }
+    
+        function deleteNode() {
+            let parent2 = document.getElementById("div1");
+            let delPtag = document.getElementById("p1");
+            parent2.removeChild(delPtag);
+        }
+        
+
+    </script>
+</body>
+</html>
