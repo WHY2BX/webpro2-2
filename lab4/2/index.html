@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab4/2</title>
+    
+    <!-- css -->
+    <link href="styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai&family=Prompt:wght@300&display=swap" rel="stylesheet">
+    <!-- js -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+    <br><br><br>
+    <div class="container">
+
+        <div class="row">
+            <div class="col"></div>
+
+            <div class="col" >
+
+                <div id="block1" style="text-align:left">
+                    <label id="fname">ชื่อ : </label>
+                    <input id="fnamein">
+                </div>
+
+                <div id="block2" style="text-align:left">
+                    <label id="lname">นามสกุล : </label>
+                    <input id="lnamein">
+                </div>
+
+                <div id="block3">
+                    <label id="count">เลือกประเทศ : </label>
+                    <script>
+                        let count = ['ไทย', 'เวียดนาม', 'บรูไน', 'ลาว', 'มาเลเซีย', 'อินโดนีเซีย', 'สิงคโปร์', 'ฟิลิปปินส์', 'พม่า', 'กัมพูชา'];
+                        let select = document.createElement("select");
+                        select.setAttribute("id", "select");
+
+                        for(c of count){
+                            let option = document.createElement("option");
+                            option.innerHTML = c;
+                            select.appendChild(option);
+                        }
+                        let block3 = document.getElementById("block3");
+                        block3.appendChild(select);
+                    </script>
+                </div>
+
+                <br><br>
+
+                <div id="block4">
+                    <button id ="btn" type="button" class="btn btn-primary" onclick="changeEn()">Change to English</button>
+                </div>
+
+                <script>
+                    function changeEn(){
+                        let block1 = document.getElementById("block1");
+                        let block2 = document.getElementById("block2");
+                        let block3 = document.getElementById("block3");
+                        let block4 = document.getElementById("block4");
+
+                        let fname = document.getElementById("fname");
+                        fname.innerHTML = "First Name : ";
+                        
+                        let lname = document.getElementById("lname");
+                        lname.innerHTML = "Last Name : ";
+
+                        let selectTH = document.getElementById("select");
+
+                        let lbc = document.getElementById("count");
+                        lbc.innerHTML = "Select country : ";
+
+                        block3.removeChild(selectTH);
+
+                        let count = ['Thailand', 'Vietnam', 'Brunai', 'Laos', 'Malaysia', 'Indonesia', 'Singapore', 'Phillipphins', 'Myanmar', 'Cambodia'];
+                        let select = document.createElement("select");
+                        select.setAttribute("id", "select");
+
+                        for(c of count){
+                            let option = document.createElement("option");
+                            option.innerHTML = c;
+                            select.appendChild(option);
+                        }
+                        block3.appendChild(select);
+
+                        let btnOld = document.getElementById("btn");
+                        let btnEN = document.createElement("button");
+                        btnEN.innerHTML = "เปลี่ยนเป็นภาษาไทย" ;
+                        btnEN.setAttribute("class", "btn btn-primary");
+                        btnEN.setAttribute("type", "button");
+                        btnEN.setAttribute("onclick", "changeTH()");
+                        btnEN.setAttribute("id", "btn");
+
+                        block4.replaceChild(btnEN, btnOld);
+
+                    }
+
+                    function changeTH(){
+                        let block1 = document.getElementById("block1");
+                        let block2 = document.getElementById("block2");
+                        let block3 = document.getElementById("block3");
+                        let block4 = document.getElementById("block4");
+
+                        let fname = document.getElementById("fname");
+                        fname.innerHTML = "ชื่อ : ";
+                        
+                        let lname = document.getElementById("lname");
+                        lname.innerHTML = "นามสกุล : ";
+
+                        let selectTH = document.getElementById("select");
+
+                        let lbc = document.getElementById("count");
+                        lbc.innerHTML = "เลือกประเทศ : ";
+
+                        block3.removeChild(selectTH);
+
+                        let count = ['ไทย', 'เวียดนาม', 'บรูไน', 'ลาว', 'มาเลเซีย', 'อินโดนีเซีย', 'สิงคโปร์', 'ฟิลิปปินส์', 'พม่า', 'กัมพูชา'];
+                        let select = document.createElement("select");
+                        select.setAttribute("id", "select");
+
+                        for(c of count){
+                            let option = document.createElement("option");
+                            option.innerHTML = c;
+                            select.appendChild(option);
+                        }
+                        block3.appendChild(select);
+
+                        let btnOld = document.getElementById("btn");
+                        let btnTH = document.createElement("button");
+                        btnTH.innerHTML = "Change to English" ;
+                        btnTH.setAttribute("class", "btn btn-primary");
+                        btnTH.setAttribute("type", "button");
+                        btnTH.setAttribute("onclick", "changeEn()");
+                        btnTH.setAttribute("id", "btn");
+
+                        block4.replaceChild(btnTH, btnOld);
+                    }           
+                </script>
+
+            </div>
+
+            <div class="col"></div>
+        </div>
+        
+    </div>
+
+</body>
+</html>

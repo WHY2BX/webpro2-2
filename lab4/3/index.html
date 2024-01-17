@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab4/3</title>
+
+    <!-- css -->
+    <link href="styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai&family=Prompt:wght@300&display=swap" rel="stylesheet">
+    <!-- js -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+    <br><br><br>
+    <div class="container center" styles="border-radius: 0.25rem">
+
+        <input id="id" type="text" placeholder="Student ID">
+        <input id="fname" type="text" placeholder="First name">
+        <input id="lname" type="text" placeholder="Last name">
+        <button type="button" class="btn btn-primary" onclick="add()">Submit</button>
+        
+        <br><br>
+        <table id="table0" border=1 class="table">
+            <tr>
+                <th>no.</th>
+                <th>Student ID</th>
+                <th>First name</th>
+                <th>Last name</th>
+            </tr>
+        </table>
+
+        <script>
+            let k=1;
+            function add(){
+
+                let table = document.getElementById('table0');
+                let row = table.insertRow(-1); //Row position 0,1,2,...,n  -1 = last
+                let cell, text, tnode;
+                let id = document.getElementById("id").value;
+                let fname = document.getElementById("fname").value;
+                let lname = document.getElementById("lname").value;
+                
+                if(id==""){
+                    window.alert("Please insert your student id.")
+                    console.log(id);
+                }
+                else if(fname==""){
+                    window.alert("Please insert your first name.")
+                    console.log(fname);
+                }
+                else if(lname==""){
+                    window.alert("Please insert your last name.")
+                    console.log(lname);
+                }
+                else{
+                    
+                    for (let i = 1; i <= 4; i++) {
+                        
+                        // create a new column
+                        j = i-1;
+                        let set = [k, id, fname, lname];
+                        cell = row.insertCell(-1);
+                        text = set[j];
+                        tnode = document.createTextNode(text);
+                        // add TextNode to column
+                        cell.appendChild(tnode);
+                        console.log(k);
+    
+                    }    
+                    k++;
+                    console.log(k);
+    
+                    document.getElementById("id").value ="";
+                    document.getElementById("fname").value="";
+                    document.getElementById("lname").value="";
+                }
+                      
+            }   
+        </script> 
+
+            
+    </div>
+    
+</body>
+</html>

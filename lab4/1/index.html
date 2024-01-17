@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab4/1</title>
+
+    <!-- css -->
+    <link href="styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300&display=swap" rel="stylesheet">
+
+    <!-- js -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+    <br><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+
+            <div class="col" style="text-align:center">
+                <div id="1">
+                    <label>Value 1: </label>
+                    <input id="val1">
+                </div> 
+
+                <br>
+
+                <div id="2" style="text-align:center">
+                    <label>Value 2: </label>
+                    <input id="val2">
+                </div>
+
+                <br>
+
+                <div id="dbtn" style="text-align:center">
+                    <button button type="button" class="btn btn-dark" id="btn" onclick="calculate()">Calculate</button>
+                </div>
+
+                <br><br>
+
+                <div id="result">
+                    <h3 id="resp"> </h3>
+                </div>
+
+                <br><hr><br>
+
+                <div id="history">
+                    <div>
+                        <h3> <b>History</b></h3>
+                        <br>
+                    </div>
+                    <p id="his"> </p>
+
+                </div>
+            </div>
+
+            <script>
+                function calculate() {
+                    let val1 = document.getElementById("val1").value;
+                    let val2 = document.getElementById("val2").value;
+                    let ans = Number(val1)+Number(val2);
+
+                    let pans = document.createElement("p");
+                    let tans = document.createTextNode(ans);
+                    pans.appendChild(tans);
+
+                    document.getElementById("resp").innerHTML = ans;
+                    let parent = document.getElementById("his");
+
+                    txt = val1 + " + " + val2 + " = " + ans;
+                    let his = document.createElement("p");
+                    let histxt = document.createTextNode(txt);
+                    his.appendChild(histxt);
+                    
+                    parent.appendChild(his);
+
+                }
+            </script>
+
+            <div class="col"></div>
+        </div>
+    </div>
+
+
+    
+</body>
+</html>

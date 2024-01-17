@@ -1,0 +1,32 @@
+
+*{
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-family: 'Prompt', sans-serif;
+}
+
+.center {
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+}
+
+.left{
+    float: left;
+}
+
+table {
+    border-collapse: collapse;
+    border-radius: 1em;
+    overflow: hidden;
+    border-color: white;
+  }
+
+  th, td {
+    padding: 1em;
+    background: #f0f0f0;
+    border-bottom: 2px solid white; 
+  }
+  
+  body {
+    margin: 1.5em;
+  }

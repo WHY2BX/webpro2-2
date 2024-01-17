@@ -1,0 +1,12 @@
+
+*{
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-family: 'Prompt', sans-serif;
+}
+
+.center {
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+}
+
