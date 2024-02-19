@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab5/3</title>
+    <link href="http://10.0.15.21/lab/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://10.0.15.21/lab/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <br><br><br>
+    <div class="container">
+    
+        <div class="row">
+            <div class="col"></div>
+
+            <div class="col-10" id ="main">
+                <h1> <u>Quiz</u> </h1>
+                <br>
+                <script>
+                    getRemoteData("qas.json");
+                    async function getRemoteData(url) {            
+                        let datObject = await fetch(url);
+                        let quiz = await datObject.json();
+                        let text = "";
+                        let count = 1;
+
+                        main = document.getElementById("main");
+
+                        for(q of quiz){
+
+                            let text = "";
+                            let h2 = document.createElement("h2");
+                            text += count + " .) " + q.question + "<br>"
+                            h2.innerHTML = text;
+
+
+                            let s1 = document.createElement("div");
+                            s1.setAttribute("id", "choice1");
+
+                            let c1 = document.createElement("input");
+                            c1.setAttribute("type", "radio");
+                            c1.setAttribute("class", "radio");
+                            c1.setAttribute("name", count);
+                            c1.setAttribute("id", "a");
+
+                            let lb1 = document.createElement("label");
+                            let h31 = document.createElement("h3");
+                            h31.innerHTML = "&nbsp;" + q.answers.a;
+                            lb1.appendChild(h31);
+
+                            s1.appendChild(c1);
+                            s1.appendChild(lb1);
+
+
+                            let s2 = document.createElement("div");
+                            s2.setAttribute("id", "choice2");
+
+                            let c2 = document.createElement("input");
+                            c2.setAttribute("type", "radio");
+                            c2.setAttribute("class", "radio");
+                            c2.setAttribute("name", count);
+                            c2.setAttribute("id", "b");
+
+                            let lb2 = document.createElement("label");
+                            let h32 = document.createElement("h3");
+                            h32.innerHTML = "&nbsp;" + q.answers.b;
+                            lb2.appendChild(h32);
+
+                            s2.appendChild(c2);
+                            s2.appendChild(lb2);
+
+
+                            let s3 = document.createElement("div");
+                            s3.setAttribute("id", "choice3");
+
+                            let c3 = document.createElement("input");
+                            c3.setAttribute("type", "radio");
+                            c3.setAttribute("class", "radio");
+                            c3.setAttribute("name", count);
+                            c3.setAttribute("id", "c");
+
+                            let lb3 = document.createElement("label");
+                            let h33 = document.createElement("h3");
+                            h33.innerHTML = "&nbsp;" + q.answers.c;
+                            lb3.appendChild(h33);
+
+                            s3.appendChild(c3);
+                            s3.appendChild(lb3);
+
+                            if(q.answers.correct == 'a'){
+                                c1.checked = true;
+                            }
+                            else if(q.answers.correct == 'b'){
+                                c2.checked = true;
+                            }
+                            else if(q.answers.correct == 'c'){
+                                c3.checked = true;
+                            }
+
+        
+                            let section = document.createElement("div");
+                            section.setAttribute("id", "section");
+                            
+                            section.appendChild(h2);
+                            section.appendChild(s1);
+                            section.appendChild(s2);
+                            section.appendChild(s3);
+                            
+                            main.appendChild(section);
+
+                            main.appendChild(document.createElement("br"));
+
+                            count++;
+                        }
+                    }
+                </script>
+            </div>
+
+            <div class="col"></div>
+        </div>
+    
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab5/1</title>
+    <link href="http://10.0.15.21/lab/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://10.0.15.21/lab/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <br><br><br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-6">
+                <p id="out"></p>
+
+                <script>
+                    getRemoteData("employees.json");
+                    async function getRemoteData(url) {            
+                        let datObject = await fetch(url);
+                        let employees = await datObject.json();
+                        let text = "";
+
+                        for(e of employees){
+                            text += e.ID +" "+ e.Firstname + " " + e.Lastname + " (" + e.Gender + ") " + "is a " + e.Position + ", " + e.Address;
+                            text += "<br>"
+                        }
+                        document.getElementById("out").innerHTML = text;
+                    }
+                </script>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+
+    
+    
+</body>
+</html>

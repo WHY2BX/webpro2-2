@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab5/2</title>
+    <link href="http://10.0.15.21/lab/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://10.0.15.21/lab/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+    
+    <br><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-6">
+
+                <p id="out"></p>
+                <script>
+                    getRemoteData("person.json");
+                    async function getRemoteData(url) {    
+
+                        let datObject = await fetch(url);
+                        let person = await datObject.json();
+                        
+                        let text = person[0].firstName + " " + person[0].lastName + ", " + person[0].gender.type + " " + person[0].age + " years old."
+                        + "<br>" + person[0].address.streetAddress + " " + person[0].address.city + " " + person[0].address.state
+                        + "<br>" + person[0].address.postalCode + "<br> home : " + person[0].phoneNumber[0].number + "<br> fax : " + person[0].phoneNumber[1].number;
+
+                        document.getElementById("out").innerHTML = text;
+                    }
+                </script>
+
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+
+</body>
+</html>
