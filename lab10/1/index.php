@@ -1,3 +1,8 @@
+
+<!-- หมายเหตุ -->
+<!-- อัพโหลดช้า เนื่องจากแก้ database -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,11 +60,30 @@
                             echo "<td>". $row['Phone'] . "</td>";
                             echo "<td>". $row['Email'] . "</td>";
                             echo "</tr>";
+
+                            $num = $row['CustomerId'];
                         }
                     ?>
 
                 </table>
+                
+                <form method="post">
+                    <div style="text-align:center;">
+                        <input class="btn btn-danger"type="submit" name='del' value="Delete">
+                    </div>
+                </form>
+
+                <?php
+                    if (isset($_POST['del'])) {
+                        
+                        $sql= "DELETE FROM Customers WHERE CustomerId=$num";
+                        $ret = $db->exec($sql); 
+                        $num--;
+                        
+                    }
+                ?>
             </div>
+            
 
             <div class="col"></div>
         </div>
